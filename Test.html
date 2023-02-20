@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+   <!--Specifies that the language of the code is in English-->
+<head>
+  <style>
+    form {text-align: center;}
+    body {
+      background-color:bisque;
+    }
+  </style>
+  <!--The style tag allows users to code in CSS (another coding language) in an html, CSS provies the user with making the website look better in this case I used it to add the background colour. Most tags in HTML need to have an opening and a closing
+  tag, this is mandatory unless the tag is self closing because the code wouldn't function without it.-->
+</head>
+<body>
+  <br>
+  <!--A br tag is a self closing tag that creates a line break tag for formating a webpage/website-->
+  <form method="get" action="">
+   <!--A form tag allows user interface such as typing in answers or adding a drop down menu-->
+    <div id="question"></div>
+    <!--A div is a larger version of a line break. An id attribute is used to label something in this case it would be our question so I labeled it "question"-->
+    <script>
+      let x = ~~(Math.random() * 113) + 13;
+      let y = ~~(Math.random() * 113) + 13;
+      let answerbox = x*y;
+      document.getElementById("question").innerHTML = x + " X " + y;
+    </script>
+    <!--A script tag allows the user to code the language javascript into an html file, I used this to create a randomally generated math equation. I have 3 variables, x, y, and z. In my case z = the answer but this is not applicable for all scenarios.
+    X and y are numbers that will be multiplied together with the code on the 24th line that specifies that the question id will show variable x will be multiplied by variable y. To get these variables the code let x (let the value of the variable)
+   be between 0-1 (this is for simplicity and it is what HTML allows), to make this a number between 10-110 as well as try not to have many 5's 10's or 0's I multiplied the number between 0-1 by 113 and then added 13 to the product. The 2 ~~ (tildas)
+    show that the variables should not have decimals. Get element by ID means that the value or in this case the input will be gotten from the ID "question"-->
+    <br>  
+  </form>
+  <label for="Answerinput">Answer:</label><br> 
+    <!--This is another way of writing an id tag but the difference is that label is used for user input which in this case would be the inputted answer to the equation-->
+  <input type="text" id="Answerinput" name="Answerinput"><br><br>
+    <!--The input-type=text specifies that this is a text box for the user to input text/numbers in-->
+
+    <div id="ans"></div> <br>
+  <button type="button" onclick="checkans()">Submit</button>
+  <!--The button tag creates a button, the onclick attribute says to check the input box called ans will be checking when submit is clicked-->
+  
+  <script>
+    function checkans() {
+      let Answerinput = document.getElementById('Answerinput').value; 
+      if(Answerinput == answerbox){
+        document.getElementById("ans").innerHTML = "Correct!";  
+      }
+      else{
+        document.getElementById("ans").innerHTML = "Try again";
+      }
+      }
+  </script> <br> <br>
+  <!--A function is exactly what it would seem like, it excecutes something. This function is called checkans, simply this function checks whether the input answer is equal to the value of z. In this case the get element by id recieves the value of
+  the text box that the user inputs. The rest is simple, if their input is equal to the answer (2 equals signs are required to show that if they are same, if there was 1 equal sign then that would mean that z = answerbox not z should = to answerbox)
+  then they get the response of correct and theoretically the alarm would turn off.If the answer is anything else then they would recieve a response of try again and the alarm would continue.-->
+  <form>
+    <input type="submit" value="Reset">
+  </form>
+  <!--This is similar to our previous form tag but in this case I used this tag to create a button with the purpose of resetting the page, a regular button tag would be a lot less efficient as you would have to set up a function for when that button
+  is pressed, the type is equal to submit not reset because the type of submit resets the page as the answer is submitted. The value is the name of the button.-->
+  <br><br>
+  <style> 
+    body {text-align: center;}
+  </style>
+  <!--The purpose of this style tag is to allign the text of the body of the webpage to the center-->
+  
+  <audio controls loop src="Digital Alarm 1  Alarm Clock Sound Effects  Free Download.mp3" type="audio/mp3" id="aud"></audio>
+  <!--This is the entire audio portion of the code, the attribute of controls adds controls to control the audio (Chrome and most if not all browsers have taken away autoplay for audio due to complaints and Google wants their webpages to be more
+    consistent with others as well as for peoples with issues to sudden noises this issue can be fixed by making an app), the loop attribute loops the audio so if the audio stops it starts playing agian. The type attribute just specifies the type of
+  file. The src attribute inputs the audio into the code-->
+</body>
+</html>
